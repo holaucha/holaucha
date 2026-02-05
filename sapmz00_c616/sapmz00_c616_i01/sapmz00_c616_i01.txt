@@ -1,0 +1,60 @@
+*&---------------------------------------------------------------------*
+*& Include          SAPMZ00_C616_I01
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0100  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE user_command_0100 INPUT.
+
+  CASE ok_code.
+    WHEN 'BACK' OR 'EXIT' OR 'CANC'.
+      LEAVE TO SCREEN 0.
+    WHEN 'GET_URL'.
+      CASE marked.
+        WHEN gv_rb01.
+          gv_selid = 'AA'.
+        WHEN gv_rb02.
+          gv_selid = 'LH'.
+        WHEN gv_rb03.
+          gv_selid = 'DL'.
+      ENDCASE.
+      PERFORM get_url.
+      gv_carrid = gs_scarr-carrid.
+      gv_url = gs_scarr-url.
+    WHEN 'SEL'.
+      PERFORM get_spfli.
+      CALL SCREEN 200.
+
+  ENDCASE.
+
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0200  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE user_command_0200 INPUT.
+  CASE ok_code.
+    WHEN 'BACK' OR 'EXIT' OR 'CANC'.
+      LEAVE TO SCREEN 100.
+    WHEN 'PRESS'.
+      CALL SCREEN 300.
+  ENDCASE.
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0300  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE user_command_0300 INPUT.
+
+  CASE ok_code.
+    WHEN 'BACK' OR 'EXIT' OR 'CANC'.
+      LEAVE TO SCREEN 200.
+  ENDCASE.
+ENDMODULE.
+
+----------------------------------------------------------------------------------
+Extracted by Direct Download Enterprise version 1.3.1 - E.G.Mellodew. 1998-2005 UK. Sap Release 758
