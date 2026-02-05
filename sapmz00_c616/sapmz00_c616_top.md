@@ -1,3 +1,4 @@
+``` abap
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
@@ -28,9 +29,3 @@ DATA: ok_code     TYPE sy-ucomm,
       gs_spfli    TYPE spfli.
 
 CONSTANTS marked VALUE 'X'.
-</pre>
-<hr>
-<font size="2" face = "Sans Serif">Extracted by Direct Download Enterprise version 1.3.1 - E.G.Mellodew. 1998-2005 UK. Sap Release 758
-</font>
-</body>
-</html>
